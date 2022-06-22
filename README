@@ -1,1 +1,101 @@
+Item 1 – Introdução → adicionar o texto da introdução no arquivo README.md do
+repositório no GitHub (1 ponto):
+• Delimitar o escopo (1 parágrafo, no mínimo):
+    o Descrever o serviço e público-alvo do problema a ser resolvido.
+        ▪ Poderá ser um aplicativo móvel, um sistema web, um sistema desktop, entre outros.
+    o Definir a linguagem de programação (se necessário, o framework), e o modelo/software NoSQL que será utilizado.
+        ▪ Redis, Riak, MongoDB, Amazon DynamoDB, Google Cloud Firestore, Cassandra, ArangoDB, Neo4J, OrientDB, Azure Cosmos DB, entre outros.
+• Formulação do problema (2 parágrafos, no mínimo):
+    o Descrever qual é o problema do usuário a ser resolvido.
+• Solução proposta (2 parágrafos, no mínimo):
+    o Apresentar a proposta de solução para o problema identificado.
+
+Item 2 – Desenvolvimento (3,5 pontos):
+1. Implementar, no mínimo, dois CRUDs (Create, Read, Update e Delete) com
+persistência de dados em banco de dados não relacionais (NoSQL).
+a. Poderá ter interface gráfica ou ser apenas uma API (webservice).
+
+Item 3 – GitHub (0,5 ponto):
+1. Criar um repositório para o projeto no GitHub em modo público.
+
+Item 4 – Vídeo (5 pontos):
+1. Gravar um vídeo, de no máximo 5 minutos, mostrando apenas os detalhes do
+código-fonte desenvolvido, que deverá conter todos os itens acima (irei descontar
+pontos do vídeo caso faltar algo que foi solicitado). Além disso, mostrar a execução
+da Interface/API, com a confirmação das ações apresentadas no banco de dados.
+Todos os integrantes do grupo deverão apresentar.
+
+cadastros(CRUDs)
+ - Imovel
+ - TipoNegocio
+ - TipoImovel
+ - Leads
+
+```bash
+$ npm i -g @nestjs/cli
+$ nest new imobiliaria
+$ cd imobiliaria
+
+npm i @nestjsx/crud @nestjsx/crud-typeorm @nestjs/typeorm typeorm class-transformer class-validator
+
+npm i --save-dev @types/jest
+
+nest generate module imovel && \
+nest generate controller imovel && \
+nest generate service imovel && \
+nest generate class imovel/imovel
+
+nest generate module TipoNegocio && \
+nest generate controller TipoNegocio && \
+nest generate service TipoNegocio && \
+nest generate class TipoNegocio/TipoNegocio
+
+nest generate module TipoImovel && \
+nest generate controller TipoImovel && \
+nest generate service TipoImovel && \
+nest generate class TipoImovel/TipoImovel
+
+nest generate module Leads && \
+nest generate controller Leads && \
+nest generate service Leads && \
+nest generate class Leads/Leads
+
+npm install -s @nestjs/swagger swagger-ui-express
+
+```
+- ativar o swagger na main.ts
+```
+import { NestFactory } from '@nestjs/core';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+
+  const app = await NestFactory.create(AppModule);
+  
+  app.enableCors({
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true,
+  });
+
+  const options = new DocumentBuilder()
+    .setTitle('Imobiliaria')
+    .setDescription('Simples CRUD para gerenciar uma imobiliaria')
+    .setVersion('1.0')
+    .addTag('gerenciamento')
+    .addBasicAuth()
+    .build();
+
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('api', app, document);
+
+  await app.listen(3000);
+
+}
+
+bootstrap();
+
+```
+
 
