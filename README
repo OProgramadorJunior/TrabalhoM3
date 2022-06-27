@@ -97,5 +97,6 @@ async function bootstrap() {
 bootstrap();
 
 ```
+- Definir a interface de cada modelo.
 
 
