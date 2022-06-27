@@ -40,25 +40,10 @@ npm i @nestjsx/crud @nestjsx/crud-typeorm @nestjs/typeorm typeorm class-transfor
 
 npm i --save-dev @types/jest
 
-nest generate module imovel && \
-nest generate controller imovel && \
-nest generate service imovel && \
-nest generate class imovel/imovel
-
-nest generate module TipoNegocio && \
-nest generate controller TipoNegocio && \
-nest generate service TipoNegocio && \
-nest generate class TipoNegocio/TipoNegocio
-
-nest generate module TipoImovel && \
-nest generate controller TipoImovel && \
-nest generate service TipoImovel && \
-nest generate class TipoImovel/TipoImovel
-
-nest generate module Leads && \
-nest generate controller Leads && \
-nest generate service Leads && \
-nest generate class Leads/Leads
+nest g resource imovel
+nest g resource lead
+nest g resource TipoImovel
+nest g resource TipoNegocio
 
 npm install -s @nestjs/swagger swagger-ui-express
 
@@ -99,4 +84,9 @@ bootstrap();
 ```
 - Definir a interface de cada modelo.
 
-
+```bash
+- nest g resource imovel
+- nest g resource lead
+- nest g resource TipoImovel
+- nest g resource TipoNegocio
+```

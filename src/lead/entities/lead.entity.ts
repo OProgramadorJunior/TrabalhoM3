@@ -1,9 +1,7 @@
-import { TipoImovel } from './../tipo-imovel/tipo-imovel';
-import { TipoNegocio } from './../tipo-negocio/tipo-negocio';
-import { Entity } from 'typeorm';
+import { TipoImovel } from "src/tipo-imovel/entities/tipo-imovel.entity";
+import { TipoNegocio } from "src/tipo-negocio/tipo-negocio";
 
-@Entity()
-export class Leads {
+export class Lead {
     id: number;
     nome: string;
     email: string;
