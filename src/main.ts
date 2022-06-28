@@ -16,7 +16,6 @@ async function bootstrap() {
     .setTitle('Imobiliaria')
     .setDescription('Simples CRUD para gerenciar uma imobiliaria')
     .setVersion('1.0')
-    .addTag('gerenciamento')
     .addBasicAuth()
     .build();
 
