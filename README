@@ -37,7 +37,7 @@ $ nest new imobiliaria
 $ cd imobiliaria
 
 npm i @nestjsx/crud @nestjsx/crud-typeorm @nestjs/typeorm typeorm class-transformer class-validator
-
+npm i mongodb --save
 npm i --save-dev @types/jest
 
 nest g resource imovel
