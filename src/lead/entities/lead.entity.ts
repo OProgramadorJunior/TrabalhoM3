@@ -1,9 +1,9 @@
 import { TipoImovel } from "src/tipo-imovel/entities/tipo-imovel.entity";
 import { TipoNegocio } from "src/tipo-negocio/tipo-negocio";
-import { Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Lead {
+export class Lead extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
     nome: string;
