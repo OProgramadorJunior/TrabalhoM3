@@ -11,8 +11,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: process.env.MONGODB_CONNECTION_STRING,
-      database: process.env.MONGODB_DATABASE,
+      url: 'mongodb+srv://imobiliaria:Pn9ydIxYUZ9Yh8pH@servidor-01.o73wk.mongodb.net/?retryWrites=true&w=majority',
+      database: 'imobiliaria-db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       ssl: true,
       useUnifiedTopology: true,
