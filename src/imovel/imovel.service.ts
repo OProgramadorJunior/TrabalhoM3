@@ -21,15 +21,15 @@ export class ImovelService {
     return this.imovelRepository.find();
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return this.imovelRepository.findOne({where: {id}});
   }
 
-  update(id: number, updateImovelDto: UpdateImovelDto) {
+  update(id: string, updateImovelDto: UpdateImovelDto) {
     return this.imovelRepository.update(id, updateImovelDto);
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.imovelRepository.delete(id);
   }
 }

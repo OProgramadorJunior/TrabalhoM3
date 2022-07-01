@@ -19,16 +19,16 @@ export class ImovelController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.imovelService.findOne(+id);
+    return this.imovelService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateImovelDto: UpdateImovelDto) {
-    return this.imovelService.update(+id, updateImovelDto);
+    return this.imovelService.update(id, updateImovelDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.imovelService.remove(+id);
+    return this.imovelService.remove(id);
   }
 }

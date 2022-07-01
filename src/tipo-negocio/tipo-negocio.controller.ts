@@ -19,16 +19,16 @@ export class TipoNegocioController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.tipoNegocioService.findOne(+id);
+    return this.tipoNegocioService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTipoNegocioDto: UpdateTipoNegocioDto) {
-    return this.tipoNegocioService.update(+id, updateTipoNegocioDto);
+    return this.tipoNegocioService.update(id, updateTipoNegocioDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.tipoNegocioService.remove(+id);
+    return this.tipoNegocioService.remove(id);
   }
 }

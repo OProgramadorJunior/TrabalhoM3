@@ -1,8 +1,9 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, ObjectIdColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class TipoNegocio extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @ObjectIdColumn()
+    id: string;
+    @Column()
     descricao: string;
 }

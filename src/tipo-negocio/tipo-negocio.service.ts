@@ -1,26 +1,34 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTipoNegocioDto } from './dto/create-tipo-negocio.dto';
 import { UpdateTipoNegocioDto } from './dto/update-tipo-negocio.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { TipoNegocio } from './entities/tipo-negocio.entity';
 
 @Injectable()
 export class TipoNegocioService {
-  create(createTipoNegocioDto: CreateTipoNegocioDto) {
-    return 'This action adds a new tipoNegocio';
+  constructor(
+    @InjectRepository(TipoNegocio)
+    private tipoNegocioRepository: Repository<TipoNegocio>,
+  ) {}
+
+  create(createImovelDto: CreateTipoNegocioDto) {
+    return this.tipoNegocioRepository.save(createImovelDto);
   }
 
   findAll() {
-    return `This action returns all tipoNegocio`;
+    return this.tipoNegocioRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tipoNegocio`;
+  findOne(id: string) {
+    return this.tipoNegocioRepository.findOne({where: {id}});
   }
 
-  update(id: number, updateTipoNegocioDto: UpdateTipoNegocioDto) {
-    return `This action updates a #${id} tipoNegocio`;
+  update(id: string, updateImovelDto: UpdateTipoNegocioDto) {
+    return this.tipoNegocioRepository.update(id, updateImovelDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} tipoNegocio`;
+  remove(id: string) {
+    return this.tipoNegocioRepository.delete(id);
   }
 }
