@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, ObjectIdColumn, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, ObjectIdColumn } from "typeorm";
 
 @Entity()
 export class TipoNegocio extends BaseEntity {

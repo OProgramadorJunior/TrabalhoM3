@@ -25,3 +25,40 @@ $ npm install
 $ npm run start
 
 ```
+## RestAPI endpoint's
+*Imovel
+```bash
+/imovel
+/imovel, POST
+/imovel, GET
+/imovel/:id, GET
+/imovel/:id, PATCH
+/imovel/:id, DELETE
+```
+*TipoNegocio
+```bash
+/tipo-negocio
+/tipo-negocio, POST
+/tipo-negocio, GET
+/tipo-negocio/:id, GET
+/tipo-negocio/:id, PATCH
+/tipo-negocio/:id, DELETE
+```
+*TipoImovel
+```bash
+/tipo-imovel
+/tipo-imovel, POST
+/tipo-imovel, GET
+/tipo-imovel/:id, GET
+/tipo-imovel/:id, PATCH
+/tipo-imovel/:id, DELETE
+```
+*Lead
+```bash
+/lead
+/lead, POST
+/lead, GET
+/lead/:id, GET
+/lead/:id, PATCH
+/lead/:id, DELETE
+```
