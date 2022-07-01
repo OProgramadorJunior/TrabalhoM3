@@ -1,3 +1,6 @@
+import { Lead } from './lead/entities/lead.entity';
+import { TipoNegocio } from 'src/tipo-negocio/tipo-negocio';
+import { TipoImovel } from 'src/tipo-imovel/entities/tipo-imovel.entity';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -6,7 +9,12 @@ import { TipoImovelModule } from './tipo-imovel/tipo-imovel.module';
 import { ImovelModule } from './imovel/imovel.module';
 import { LeadModule } from './lead/lead.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AdminModule } from '@adminjs/nestjs';
+import AdminJS from 'adminjs';
+import { Database, Resource } from '@adminjs/typeorm';
+import { Imovel } from './imovel/entities/imovel.entity';
 
+AdminJS.registerAdapter({ Database, Resource });
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -17,6 +25,17 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       ssl: true,
       useUnifiedTopology: true,
       useNewUrlParser: true,
+    }),
+    AdminModule.createAdmin({
+      adminJsOptions: {
+        rootPath: '/admin',
+        resources: [Imovel, TipoImovel, Lead]
+      },
+      auth: {
+        authenticate: async (email, password) => Promise.resolve({ email: 'test' }),
+        cookieName: 'test',
+        cookiePassword: 'test',
+      }
     }),
     ImovelModule,
     TipoNegocioModule,
