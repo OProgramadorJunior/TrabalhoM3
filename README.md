@@ -1,11 +1,12 @@
 
 ## Descrição
 
-O cliente necessita de sistemas para aprimorar o site da sua empresa, a qual trabalha com um volume alto de pessoas que estão procurando imóveis. O cliente deseja melhorar ainda mais a facilidade de visualização de seu site, como também a variedade de imóveis disponíveis na interface, para que seu site fique ainda mais completo e organizado.
-O cliente então verificou a necessidade de ter ferramentas para auxilia-lo com essas tarefas, pois seu principal problema no site é a inflexibilidade para implementar itens da forma como ele deseja. 
-A solução implementada para esse cliente foi pensada a fim de suprir as carências apresentadas. A opção que melhor se encaixou para solucionar esses problemas foram a de uma criação de uma API Rest para auxiliar e facilitar as implementações que ele deseja, com a criação de dois CRUDs.
-O cliente necessita de sistemas para aprimorar o site da sua empresa, a qual trabalha com um volume alto de pessoas que estão procurando imóveis. O cliente deseja melhorar ainda mais a facilidade de visualização de seu site, como também a variedade de imóveis disponíveis na interface, para que seu site fique ainda mais completo e organizado.
-O cliente então verificou a necessidade de ter ferramentas para auxilia-lo com essas tarefas, pois seu principal problema no site é a inflexibilidade para implementar itens da forma como ele deseja. A solução implementada para esse cliente foi pensada a fim de suprir as carências apresentadas. A opção que melhor se encaixou para solucionar esses problemas foram a de uma criação de uma API Rest para auxiliar e facilitar as implementações que ele deseja, com a criação de dois CRUDs.
+  O cliente necessita transformar seu site estático em um que seja possível alterar os cadastros sem precisar conectar no servidor para alterar os arquivos. Ele necessita cadastrar em multi plataforma devido ao aumento de novos imóveis para a venda. O cliente deseja melhorar ainda mais a facilidade de administração de seu site. O cliente então verificou a necessidade de ter ferramentas para auxilia-lo com essas tarefas, pois seu principal problema no site é a inflexibilidade para implementar itens da forma como ele deseja.
+  
+  
+  A solução implementada para esse cliente foi pensada a fim de suprir as carências apresentadas. A opção que melhor se encaixou para solucionar esses problemas foram a de uma criação de uma RestAPI para que seja consumido por uma aplicação web, na qual tem a finalidade de auxiliar e facilitar as implementações que ele deseja, com a criação de quatro CRUDs.
+  
+  O cliente então verificou a necessidade de ter ferramentas para auxilia-lo com essas tarefas, pois seu principal problema no site é a inflexibilidade para implementar itens da forma como ele deseja. A solução implementada para esse cliente foi pensada a fim de suprir as carências apresentadas. A opção que melhor se encaixou para solucionar esses problemas foram a de uma criação de uma API Rest para auxiliar e facilitar as implementações que ele deseja, com a criação de dois CRUDs.
 
 ## Tecnologias
   Typescript
@@ -35,7 +36,7 @@ $ npm run start
 /imovel/:id, PATCH
 /imovel/:id, DELETE
 ```
-*TipoNegocio
+TipoNegocio
 ```bash
 /tipo-negocio
 /tipo-negocio, POST
@@ -44,7 +45,7 @@ $ npm run start
 /tipo-negocio/:id, PATCH
 /tipo-negocio/:id, DELETE
 ```
-*TipoImovel
+TipoImovel
 ```bash
 /tipo-imovel
 /tipo-imovel, POST
@@ -53,7 +54,7 @@ $ npm run start
 /tipo-imovel/:id, PATCH
 /tipo-imovel/:id, DELETE
 ```
-*Lead
+Lead
 ```bash
 /lead
 /lead, POST
