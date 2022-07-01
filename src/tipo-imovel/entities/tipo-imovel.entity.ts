@@ -1,8 +1,9 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, ObjectID, ObjectIdColumn } from "typeorm";
 
 @Entity()
 export class TipoImovel extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @ObjectIdColumn()
+    id: ObjectID;
+    @Column()
     descricao: string;
 }

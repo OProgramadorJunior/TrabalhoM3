@@ -1,26 +1,35 @@
+import { Imovel } from './entities/imovel.entity';
 import { Injectable } from '@nestjs/common';
 import { CreateImovelDto } from './dto/create-imovel.dto';
 import { UpdateImovelDto } from './dto/update-imovel.dto';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class ImovelService {
+
+  constructor(
+    @InjectRepository(Imovel)
+    private imovelRepository: Repository<Imovel>,
+  ) {}
+
   create(createImovelDto: CreateImovelDto) {
-    return 'This action adds a new imovel';
+    return this.imovelRepository.save(createImovelDto);
   }
 
   findAll() {
-    return `This action returns all imovel`;
+    return this.imovelRepository.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} imovel`;
+    return this.imovelRepository.findOne({where: {id}});
   }
 
   update(id: number, updateImovelDto: UpdateImovelDto) {
-    return `This action updates a #${id} imovel`;
+    return this.imovelRepository.update(id, updateImovelDto);
   }
 
   remove(id: number) {
-    return `This action removes a #${id} imovel`;
+    return this.imovelRepository.delete(id);
   }
 }

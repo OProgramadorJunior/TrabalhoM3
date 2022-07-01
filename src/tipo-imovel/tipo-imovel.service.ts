@@ -1,26 +1,37 @@
+import { TipoImovel } from './entities/tipo-imovel.entity';
 import { Injectable } from '@nestjs/common';
 import { CreateTipoImovelDto } from './dto/create-tipo-imovel.dto';
 import { UpdateTipoImovelDto } from './dto/update-tipo-imovel.dto';
+import { DeleteResult, ObjectID, Repository, UpdateResult } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class TipoImovelService {
-  create(createTipoImovelDto: CreateTipoImovelDto) {
-    return 'This action adds a new tipoImovel';
+  constructor(
+    @InjectRepository(TipoImovel)
+    private tipoTipoImovelRepository: Repository<TipoImovel>,
+  ) {}
+
+  async create(createTipoImovelDto: CreateTipoImovelDto): Promise<TipoImovel> {
+    return await this.tipoTipoImovelRepository.save(createTipoImovelDto);
   }
 
-  findAll() {
-    return `This action returns all tipoImovel`;
+  async findAll(): Promise<TipoImovel[]> {
+    return await this.tipoTipoImovelRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tipoImovel`;
+  async findOne(id: ObjectID): Promise<TipoImovel> {
+    return await this.tipoTipoImovelRepository.findOne({ where: { id } });
   }
 
-  update(id: number, updateTipoImovelDto: UpdateTipoImovelDto) {
-    return `This action updates a #${id} tipoImovel`;
+  async update(
+    id: ObjectID,
+    updateTipoImovelDto: UpdateTipoImovelDto,
+  ): Promise<UpdateResult> {
+    return await this.tipoTipoImovelRepository.update(id, updateTipoImovelDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} tipoImovel`;
+  async remove(id: ObjectID): Promise<DeleteResult> {
+    return await this.tipoTipoImovelRepository.delete(id);
   }
 }
